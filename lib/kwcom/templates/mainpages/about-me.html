@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Kevin Watt{% endblock %}</h1>
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block firstcontent %}
+    <div class="main-content-box-left">
+        <nobr><p class="main-content">Welcome.</p></nobr>
+        <p class="content" style="color: white;">Thank you for 
+        visiting my site. It's a pleasure to have you. While you're 
+        here, please take the time to view my.</p>
+    </div>
+{% endblock %}
+{% block content %}
+<!-- "My Work" section for professional statement -->
+<section class="large-content-container off-white">
+    <div class="fifth-content title off-white">
+        <p style="text-align: right;">My Work.</p>
+    </div>
+    <div class="half-content content-box off-white" style="order: 2;">
+        <p style="text-align: justify;">I am a technology consultant 
+        energized by designing and implementing graceful solutions to 
+        complex problems. augment clients’ workforces with intelligent 
+        automation. Skilled at analyzing and implementing processes 
+        that reduce wasted motion, make existing data more valuable, 
+        and better position clients to realize the gains from and stay 
+        ahead of the ever-changing technical landscape. Experience 
+        helping clients in software development, digital media, network 
+        media, and technology services enhance their existing processes.
+        <br><br>I want to make this better, but here's a second 
+        paragraph in the meantime.</p>
+    </div>
+    <div class="quarter-content content-box" style="order: 3;">
+        <img src="static/images/mlb-headshot.jpg">
+    </div>
+</section>
+<!-- Employer banner generated via the get_employers() function -->
+<section class="large-content-container  white" style="min-height: 20%; justify-content: space-evenly; padding-bottom: 0%;">
+    {% for image in comp_images %}
+    <div class="banner-image-box">
+        <img src="static/images/employers/{{ image }}">
+    </div>
+    {% endfor %}
+</section>
+<!-- "My Passion" section to express interest in fields of work -->
+<section class="large-content-container off-white">
+    <div class="half-content title off-white" style="order: 3;">
+        <p>My Passion.</p>
+    </div>
+    <div class="half-content off-white" style="order: 2;">
+        <p>I am a technology consultant 
+        energized by designing and implementing graceful solutions to 
+        complex problems. augment clients’ workforces with intelligent 
+        automation. Skilled at analyzing and implementing processes 
+        that reduce wasted motion, make existing data more valuable, 
+        and better position clients to realize the gains from and stay 
+        ahead of the ever-changing technical landscape. Experience 
+        helping clients in software development, digital media, network 
+        media, and technology services enhance their existing processes.
+        <br><br>I want to make this better, but here's a second 
+        paragraph in the meantime.</p>
+    </div>
+</section>
+<!-- "My Goals" section to demonstrate how I'm working towards my passion -->
+<section class="large-content-container white">
+    <div class="half-content title white" style="order: 1; text-align: right;">
+        <p>My Goals.</p>
+    </div>
+    <div class="half-content white" style="order: 2;">
+        <p>I am a technology consultant 
+        energized by designing and implementing graceful solutions to 
+        complex problems. augment clients’ workforces with intelligent 
+        automation. Skilled at analyzing and implementing processes 
+        that reduce wasted motion, make existing data more valuable, 
+        and better position clients to realize the gains from and stay 
+        ahead of the ever-changing technical landscape. Experience 
+        helping clients in software development, digital media, network 
+        media, and technology services enhance their existing processes.
+        <br><br>I want to make this better, but here's a second 
+        paragraph in the meantime.</p>
+    </div>
+</section>
+{% endblock %}

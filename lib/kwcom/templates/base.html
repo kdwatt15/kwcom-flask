@@ -1,0 +1,43 @@
+<html>
+<title>{% block title %}{% endblock %}</title>
+<head>
+<link rel="stylesheet" 
+    href="{{ url_for('static', filename='style.css') }}"/>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Tangerine">
+<style>
+    :root {--background-url: url({{ url_for('static', 
+        filename='images/{0}'.format(background_img)) }});}
+    {% block style %}{% endblock %}
+</style>
+</head>
+<body>
+    <div class="main-background">
+        <div class="nav-bar-container">
+            <div class="nav-side-box">
+                <a href="{{ url_for('.about_me') }}" class="nav-link" 
+                    ="order: 1; text-align: left;">Kevin Watt</a>
+            </div>
+            <div class="nav-center-box" style="order: 2;">
+                {% for link in nav_links %}
+                <a href="{{ link }}" class="nav-link">
+                    {{ link.split("/")[-1].replace("-", " ") }}</a>
+                {% endfor %}
+            </div>
+            <div class="nav-side-box" style="order: 3; 
+                text-align: right;">
+                <a href="{{ url_for('.experience') }}" 
+                    class="nav-link">contact</a>
+            </div>
+        </div>
+        <div class="main-content-container">
+        {% block firstcontent %}{% endblock %}
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="footer">
+        <div class="footer-box">In development as of May 24, 2020</div>
+    </div>
+</body>
+</html>
+
