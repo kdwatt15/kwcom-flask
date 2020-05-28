@@ -8,11 +8,14 @@
   
   /* content background colors */
   --off-white: #eeeff1;
-  
   --white: white;
   
-  /* grey */
+  /* html-background */
   --background-color: #444147;
+}
+
+.border {
+  border: solid 2px yellow;
 }
 
 html, body {
@@ -75,7 +78,7 @@ a:hover {
 .main-content-container {
   display: flex;
   height: 89%;
-  align-items: flex-end
+  align-items: flex-start
 }
 
 .main-content-box-left {
@@ -114,7 +117,6 @@ a:hover {
   width: 100%;
   min-height: 30%;
   padding: 10% 0 10%;
-  align-items: flex-start;
 }
 
 .title {
