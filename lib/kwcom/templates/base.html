@@ -1,17 +1,18 @@
 <html>
 <title>{% block title %}{% endblock %}</title>
 <head>
-<link rel="stylesheet" 
-    href="{{ url_for('static', filename='style.css') }}"/>
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Lato">
-<style>
-    :root {--background-url: url({{ url_for('static', 
-        filename='images/{0}'.format(background_img)) }});}
-    {% block style %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" 
+        href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato">
+    <style>
+        :root {--background-url: url({{ url_for('static', 
+            filename='images/{0}'.format(background_img)) }});}
+        {% block style %}{% endblock %}
 </style>
 </head>
-<body>
+<body media="screen and (min-width:600px)">
     <div class="main-background">
         <div class="nav-bar-container">
             <div class="nav-side-box">
