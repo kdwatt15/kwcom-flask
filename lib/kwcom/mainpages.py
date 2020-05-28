@@ -42,7 +42,7 @@ def fetch_banner_images(folder_name):
     return comp_images
     
 
-@main_pages.route("/about-me")
+@main_pages.route("/")
 def about_me():
     return render_template(join("mainpages", "about-me.html"), 
         nav_links=nav_links(), 
