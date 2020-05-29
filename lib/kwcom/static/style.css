@@ -195,7 +195,7 @@ p {
 }
 
 .title {
-  text-align: left;
+  text-align: right;
   vertical-align: top;
   font-size: 25pt;
   margin-left: 1em;
@@ -308,6 +308,11 @@ img {
     width: 90%;
     text-align: left;
     align-self: center;
+    margin: 1em;
+  }
+  
+  .title {
+    text-align: left;
   }
   
   .mobile-image {
