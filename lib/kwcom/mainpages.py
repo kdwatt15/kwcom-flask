@@ -29,7 +29,7 @@ def dated_url_for(endpoint, **values):
     
     
 def nav_links(name=None):
-    page_names = ["experience", "skills", "projects"]
+    page_names = ["skills", "experience", "projects"]
     # if (name is not None): page_names.remove(name)
     links = [url_for(".{0}".format(name)) for name in page_names]
     return links

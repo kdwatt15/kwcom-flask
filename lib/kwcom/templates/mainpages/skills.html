@@ -3,30 +3,63 @@
 <style>
 :root {--nav-text: white;
     --primary-text: black;}
+.main-content-box li {color: white;}
 </style>
 {% endblock %}
 {% block header %}
   <h1>{% block title %}Kevin Watt{% endblock %}</h1>
 {% endblock %}
 {% block firstcontent %}
-    <div class="main-content-box-left border">
-        <p class="main-content border">What I do.</p>
+    <div class="main-title-box">
+        <p>What I can do.</p>
+    </div>
+    <div class="main-content-box">
+        <p>This page contains languages and tools that I've worked with in three categories:</p>
+        <ul color="white">
+            <li>'Certifications' are listed exhaustively with the date each was earned.</li>
+            <li>'Professional' are the skills that I have used in a professional setting.</li>
+            <li>Under 'Working Knowledge' are the tools that I would be comfortable using professionally but have not had the opportunity to yet.</li>
+        </ul>
+        <p>All categories are listed in order of familiarity.</p>
     </div>
 {% endblock %}
 {% block content %}
-<section class="padded-content-container off-white border" style="align-items: stretch;">
-    <div class="third-content title off-white border">
-        <p>Languages and Tools</p>
+<section class="padded-content-container mobile-column off-white">
+    <div class="content-1-2 mobile-content title">
+        <p>Certifications</p>
     </div>
-    <div class="half-content off-white border">
+    <div class="content-1-2 mobile-content">
         <li>Blue Prism</li>
-        <li>Python</li>
+        <li>Alteryx</li>
         <li>UiPath</li>
-        <li>SQL</li>
-        <li>Azure</li>
+        <li>Automation Anywhere</li>
+    </div>
+</section>
+<section class="padded-content-container mobile-column white">
+    <div class="content-1-2 mobile-content title">
+        <p>Professional</p>
+    </div>
+    <div class="content-1-2 mobile-content">
+        <li>SQL (DBA, development, and design)</li>
+        <li>Salesforce CRM</li>
+        <li>Salesforce Einstein Analytics</li>
+        <li>vb.NET</li>
         <li>Celonis</li>
         <li>Unqork</li>
-        <li>Automation Anywhere</li>
+    </div>
+</section>
+<section class="padded-content-container mobile-column off-white">
+    <div class="content-1-2 title mobile-content off-white">
+        <p>Working Knowledge</p>
+    </div>
+    <div class="content-1-2 mobile-content">
+        <li>Azure</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Server Administration</li>
+        <li>AWS</li>
+        <li>Docker</li>
     </div>
 </section>
 {% endblock %}
