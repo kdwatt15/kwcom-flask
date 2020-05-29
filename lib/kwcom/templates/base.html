@@ -15,32 +15,33 @@
 </style>
 </head>
 <body>
-    <div class="topnav show-mobile">
+    
+    <div class="main-background">
+        <div class="topnav show-mobile" style="z-index: 1; position: relative;">
             <a href="{{ url_for('.about_me') }}" class="active">kevin watt</a>
         <!-- Navigation links (hidden by default) -->
-        <div id="myLinks">
-            {% for link in nav_links %}
-            <a href="{{ link }}">
-                {{ link.split("/")[-1].replace("-", " ") }}</a>
-            {% endfor %}
-            <a href="{{ url_for('.contact') }}">contact</a>
-        </div>
-        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-        <script>
-            function myFunction() {
-                var x = document.getElementById("myLinks");
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                } else {
-                    x.style.display = "block";
+            <div id="myLinks">
+                {% for link in nav_links %}
+                <a href="{{ link }}">
+                    {{ link.split("/")[-1].replace("-", " ") }}</a>
+                {% endfor %}
+                <a href="{{ url_for('.contact') }}">contact</a>
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("myLinks");
+                    if (x.style.display === "block") {
+                        x.style.display = "none";
+                    } else {
+                        x.style.display = "block";
+                    }
                 }
-            }
-        </script>
-    </div>
-    <div class="main-background">
+            </script>
+        </div>
         <div class="nav-bar-container hide-mobile">
             <div class="nav-side-box">
                 <a href="{{ url_for('.about_me') }}" class="nav-link" 
@@ -58,7 +59,7 @@
                     class="nav-link">contact</a>
             </div>
         </div>
-        <div class="main-content-container">
+        <div class="main-content-container" style="z-index: 2; position: absolute;">
         {% block firstcontent %}{% endblock %}
         </div>
     </div>
