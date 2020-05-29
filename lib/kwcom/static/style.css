@@ -119,19 +119,6 @@ html, body {
   top: 0;
 }
 
-/* media queries */
-@media only screen and (max-device-width: 460px) {
-  .hide-mobile {
-    display: none;
-  }
-}
-
-@media only screen and (min-device-width: 461px) {
-  .show-mobile {
-    display: none;
-  }
-}
-
 /*------------------------
  * Classes for the main window
  ------------------------*/
@@ -296,3 +283,31 @@ img {
   padding-top: 2.5%;
   padding-bottom: 2.5%;
 }
+
+/*------------------------
+ * Media queries
+ ------------------------*/
+/* mobile */
+@media only screen and (max-device-width: 460px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .mobile-column {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .mobile-content {
+    padding: 0 5% 0;
+    width: 90%
+  }
+}
+
+/* standard */
+@media only screen and (min-device-width: 461px) {
+  .show-mobile {
+    display: none;
+  }
+}
+
