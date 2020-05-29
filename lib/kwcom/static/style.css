@@ -14,10 +14,28 @@
   --background-color: #444147;
 }
 
-.border {
+/*------------------------
+ * Dev classes
+ ------------------------*/
+.border1 {
   border: solid 2px yellow;
 }
 
+.border2 {
+  border: solid 2px red; 
+}
+
+.border3 {
+  border: dashed 2px blue;
+}
+
+.border4 {
+  border: dotted 3px teal;
+}
+
+/*------------------------
+ * Overwriting defaults
+ ------------------------*/
 html, body {
 /* this resets the defaults */
   font-family: Lato;
@@ -27,21 +45,12 @@ html, body {
   min-height: 100%;
   min-width: 100%;
   background-color: var(--background-color);
+  z-index: 2;
 }
 
-.main-background {
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-repeat: round;
-  background-image: 
-        linear-gradient(
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.5)
-        ),
-        var(--background-url)
-}
-
+/*------------------------
+ * Standard nav bar classes
+ ------------------------*/
 .nav-bar-container {
   display: flex;
   margin: auto;
@@ -50,11 +59,6 @@ html, body {
   height: 11%;
   width: 100%;
   font-size: 10pt;
-}
-
-.nav-bar-container a:hover {
-  color: var(--hover-accent);
-  transition-duration: .3s;
 }
 
 .nav-center-box {
@@ -70,29 +74,126 @@ html, body {
   text-transform: uppercase;
 }
 
+.nav-bar-container a:hover {
+  color: var(--hover-accent);
+  transition-duration: .5s;
+}
+
 .nav-side-box {
   width: 10%;
   padding: 0 5% 0;
 }
 
+/*------------------------
+ * Mobile nav bar classes
+ ------------------------*/
+/* Mobile nav bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* media queries */
+@media only screen and (max-device-width: 460px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-device-width: 461px) {
+  .show-mobile {
+    display: none;
+  }
+}
+
+/*------------------------
+ * Classes for the main window
+ ------------------------*/
+.main-background {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: round;
+  background-image: 
+        linear-gradient(
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        var(--background-url)
+}
 
 .main-content-container {
+  --side-padding: 10%;
   display: flex;
   height: 89%;
-  align-items: flex-start
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.main-content-box-left {
-  width: 30%;
-  padding-left: 15%;
-  padding-bottom: 10%;
+.main-content-container div {
+  padding-left: var(--side-padding);
 }
 
-.main-content {
+.main-content-container p {
+  margin-block-start: 0;
+  margin-block-end: 2%;
   color: white;
-  font-size: 50px;
 }
 
+.main-title-box {
+  width: 30%;
+  font-size: 40px;
+}
+
+.main-content-box {
+  width: calc(60% - var(--side-padding));
+  font-size: 15px;
+}
+
+.main-content-box a {
+  font-size: 25px;
+  margin: 3px;
+  color: white;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.main-content-box a:hover {
+  color: var(--hover-accent);
+  transition-duration: .5s;
+}
+
+/*------------------------
+ * Styling for content classes
+ ------------------------*/
 .off-white {
   background-color: var(--off-white);
 }
@@ -101,6 +202,21 @@ html, body {
   background-color: var(--white);
 }
 
+.title {
+  text-align: left;
+  vertical-align: top;
+  font-size: 25pt
+}
+
+.content {
+  color: var(--primary-text);
+  min-height: 25%;
+}
+
+/*------------------------
+ * Sizing for content classes
+ * content flex items are written 'type-numerator-denominator'
+ ------------------------*/
 .large-content-container {
   display: flex;
   height: auto;
@@ -120,18 +236,6 @@ html, body {
   padding: 10% 0 10%;
 }
 
-.title {
-  text-align: left;
-  vertical-align: top;
-  font-size: 25pt
-}
-
-.content {
-  color: var(--primary-text);
-  min-height: 25%;
-}
-
-/* content flex box classes are written numerator-denominator-type */
 .content-1-1 {
   width: calc(100% - 4em);
   margin: 2em;
@@ -162,6 +266,9 @@ html, body {
   margin: 2em;
 }
 
+/*------------------------
+ * Image styling
+ ------------------------*/
 img {
   max-width: 100%;
   max-height: 100%;
@@ -176,6 +283,9 @@ img {
   padding-right: 2.5%;
 }
 
+/*------------------------
+ * Footer styling
+ ------------------------*/
 .footer {
   display: flex;
   justify-content: center;

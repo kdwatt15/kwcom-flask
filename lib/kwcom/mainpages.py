@@ -29,7 +29,7 @@ def dated_url_for(endpoint, **values):
     
     
 def nav_links(name=None):
-    page_names = ["skills", "experience", "community"]
+    page_names = ["experience", "skills", "projects"]
     # if (name is not None): page_names.remove(name)
     links = [url_for(".{0}".format(name)) for name in page_names]
     return links
@@ -64,8 +64,15 @@ def skills():
         background_img = "computer-background.jpg")
     
     
-@main_pages.route("/community")
-def community():
-    return render_template(join("mainpages", "community.html"), 
-        nav_links=nav_links("community"),
+@main_pages.route("/projects")
+def projects():
+    return render_template(join("mainpages", "projects.html"), 
+        nav_links=nav_links("projects"),
         background_img = "sunset-road.jpg")
+        
+@main_pages.route("/contact")
+def contact():
+    return render_template(join("mainpages", "contact.html"), 
+        nav_links=nav_links("contact"),
+        background_img = "sunset-road.jpg")
+        

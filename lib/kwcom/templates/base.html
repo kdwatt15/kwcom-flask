@@ -6,15 +6,42 @@
         href="{{ url_for('static', filename='style.css') }}"/>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <style>
         :root {--background-url: url({{ url_for('static', 
             filename='images/{0}'.format(background_img)) }});}
         {% block style %}{% endblock %}
 </style>
 </head>
-<body media="screen and (min-width:600px)">
+<body>
+    <div class="topnav show-mobile">
+            <a href="{{ url_for('.about_me') }}" class="active">kevin watt</a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+            {% for link in nav_links %}
+            <a href="{{ link }}">
+                {{ link.split("/")[-1].replace("-", " ") }}</a>
+            {% endfor %}
+            <a href="{{ url_for('.contact') }}">contact</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            }
+        </script>
+    </div>
     <div class="main-background">
-        <div class="nav-bar-container">
+        <div class="nav-bar-container hide-mobile">
             <div class="nav-side-box">
                 <a href="{{ url_for('.about_me') }}" class="nav-link" 
                     ="order: 1; text-align: left;">Kevin Watt</a>
