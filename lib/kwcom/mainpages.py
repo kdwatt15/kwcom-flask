@@ -8,7 +8,6 @@ from imghdr import what
 from flask import Blueprint
 from flask import render_template
 from flask import url_for
-from flask import redirect
 
 main_pages = Blueprint("main_pages", __name__)
 
@@ -31,7 +30,7 @@ def dated_url_for(endpoint, **values):
 def nav_links(name=None):
     page_names = ["skills", "experience", "projects"]
     # if (name is not None): page_names.remove(name)
-    links = [url_for(".{0}".format(name)) for name in page_names]
+    links = [url_for("main_pages.{0}".format(name)) for name in page_names]
     return links
     
     
@@ -46,7 +45,7 @@ def fetch_banner_images(folder_name):
 def about_me():
     return render_template(join("mainpages", "about-me.html"), 
         nav_links=nav_links(), 
-        comp_images=fetch_banner_images(),
+        comp_images=fetch_banner_images("employers"),
         background_img = "snowy-mountain-road.jpg")
 
 
@@ -69,9 +68,3 @@ def projects():
     return render_template(join("mainpages", "projects.html"), 
         nav_links=nav_links(),
         background_img = "sunset-road.jpg")
-        
-@main_pages.route("/contact")
-def contact():
-    return render_template(join("mainpages", "contact.html"), 
-        nav_links=nav_links())
-        

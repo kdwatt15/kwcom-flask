@@ -15,18 +15,17 @@
 </style>
 </head>
 <body>
-    
     <div class="main-background">
         <!-- mobile nav bar -->
         <div class="topnav show-mobile">
-            <a href="{{ url_for('.about_me') }}" class="active">kevin watt</a>
+            <a href="{{ url_for('main_pages.about_me') }}" class="active">kevin watt</a>
         <!-- Navigation links (hidden by default) -->
             <div id="myLinks">
                 {% for link in nav_links %}
                 <a href="{{ link }}">
                     {{ link.split("/")[-1].replace("-", " ") }}</a>
                 {% endfor %}
-                <a href="{{ url_for('.contact') }}">contact</a>
+                <a href="{{ url_for('contact_bp.contact') }}">contact</a>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -57,13 +56,11 @@
             </div>
             <div class="nav-side-box" style="order: 3; 
                 text-align: right;">
-                <a href="{{ url_for('main_pages.contact') }}" 
+                <a href="{{ url_for('contact_bp.contact') }}" 
                     class="nav-link" style="text-align: right;">contact</a>
             </div>
         </div>
-        <div class="main-content-container">
         {% block firstcontent %}{% endblock %}
-        </div>
     </div>
     {% block content %}{% endblock %}
     <div class="footer">

@@ -5,27 +5,29 @@
 {% block style %}
 {% endblock %}
 {% block firstcontent %}
-<div class="main-title-box">
-    <p>Welcome.</p>
-</div>
-<div class="main-content-box">
-    <p>Thank you for visiting my site. It's a 
-    pleasure to have you! <br><br>
-    While you're here, please take the time to view the 
-    <a href="{{ url_for('.experience') }}">work</a> 
-    I've done, the 
-    <a href="{{ url_for('.skills') }}">skills</a> 
-    I've gained during these early days of my career, and the 
-    <a href="{{ url_for('.projects') }}">projects</a>
-     I've been working on in my free time. For those more formally 
-    inclined, you can also download my
-    <a href="{{ url_for('static', filename='documents/resume.pdf') }}" style="margin-right: 0;" download>resume.</a>
-    <br><br>If you like what you see (or you hate it), I'd love to hear! You can 
-    contact me directly by either 
-    <a href="{{ url_for('.contact') }}">email</a>
-     or 
-    <a href="{{ url_for('.contact') }}" style="margin-right: 0;">text.</a>
-    </p>
+<div class="main-content-container">
+    <div class="main-title-box">
+        <p>Welcome.</p>
+    </div>
+    <div class="main-content-box">
+        <p>Thank you for visiting my site. It's a 
+        pleasure to have you! <br><br>
+        While you're here, please take the time to view the 
+        <a href="{{ url_for('.experience') }}">work</a> 
+        I've done, the 
+        <a href="{{ url_for('.skills') }}">skills</a> 
+        I've gained during these early days of my career, and the 
+        <a href="{{ url_for('.projects') }}">projects</a>
+         I've been working on in my free time. For those more formally 
+        inclined, you can also download my
+        <a href="{{ url_for('static', filename='documents/resume.pdf') }}" style="margin-right: 0;" download>resume.</a>
+        <br><br>If you like what you see (or you hate it), I'd love to hear! You can 
+        contact me directly by either 
+        <a href="{{ url_for('contact_bp.contact') }}">email</a>
+         or 
+        <a href="{{ url_for('contact_bp.contact') }}" style="margin-right: 0;">text.</a>
+        </p>
+    </div>
 </div>
 {% endblock %}
 {% block content %}

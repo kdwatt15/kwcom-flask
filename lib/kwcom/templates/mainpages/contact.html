@@ -4,30 +4,105 @@
 :root {--nav-text: white;
     --primary-text: black;}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 {% endblock %}
 {% block header %}
   <h1>{% block title %}Kevin Watt{% endblock %}</h1>
 {% endblock %}
 {% block firstcontent %}
-    <div class="main-title-box">
-        <p>Contact!</p>
-    </div>
+    <form class="input-container" name="contactForm" 
+        action="{{ url_for('.message_sent') }}" method="post"
+        onsubmit="return ValidateContactAddress();">
+<div>
+    <p>First Name</p>
+    <input type="text" name="First Name" required>
+</div>
+<div>
+    <p>Last Name</p>
+    <input type="text" name="Last Name" required>
+</div>
+<div>
+    <p id="contactAddressType">Email</p>
+    <input type="text" class="form-control" name="email" 
+        id="email" value="" required>
+    <input type="text" class="form-control" name="phoneNumber" 
+        id="phoneNumber" value="" style="display: none;">
+</div>
+<div>         
+  
+</div>
+<div>
+    <p>Body</p>
+    <textarea type="text" name="Body" required></textarea>
+</div>
+<div class="input-buttons">
+    <input type="submit" name="submit" 
+        onclick="ValidateContactAddress()">
+    <button id="changeType" type="button" 
+        onclick="changethis()">Text instead...</button>
+</div>
+        <script>
+            <!--$('#phoneNumber').inputmask("(999) 999-9999");-->
+            
+            <!-- Functions are working correctly. (1) post to twilio, (2) incorporate masking -->
+            var contactType = document.getElementById("contactAddressType");
+            var changeType = document.getElementById("changeType");
+            var email = document.getElementById("email");
+            var phoneNumber = document.getElementById("phoneNumber");
+
+            function changethis() {
+                if (contactType.innerHTML == "Email") {
+                    email.style.display = "none"
+                    email.required = false;
+                    phoneNumber.style.display = "block"
+                    phoneNumber.required = true;
+                    contactType.innerHTML = "Phone Number"
+                    changeType.innerHTML = "Email instead..."
+                } else {
+                    email.style.display = "block";
+                    email.required = true;
+                    phoneNumber.style.display = "none";
+                    phoneNumber.required = false;
+                    contactType.innerHTML = "Email";
+                    changeType.innerHTML = "Text instead...";
+                }
+            }
+
+            function ValidateContactAddress(inputText) {
+                if (email.style.display !== "none") {
+                    return ValidateEmail(document.contactForm.email);
+                } else {
+                    return ValidatePhoneNumber(document.contactForm.phoneNumber);
+                }
+            }
+
+            function ValidateEmail(inputText) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (inputText.value.match(mailformat)) {
+                    document.contactForm.email.focus();
+                    return true;
+                } else {
+                    alert("You have entered an invalid email address!");
+                    document.contactForm.email.focus();
+                    return false;
+                }
+            }
+
+            function ValidatePhoneNumber(inputText) {
+                var phoneFormat = /\d{10}/;
+                if (inputText.value.match(phoneFormat)) {
+                    document.contactForm.phoneNumber.focus();
+                    return true;
+                } else {
+                    alert("Please enter a valid phone number.");
+                    document.contactForm.phoneNumber.focus();
+                    return false;
+                }
+            }
+        </script>
+    </form>
 {% endblock %}
 {% block content %}
 <!-- "My Work" section for professional statement -->
-<section class="padded-content-container off-white">
-    <div class="half-content title off-white">
-        <p>Languages and Tools</p>
-    </div>
-    <div class="half-content off-white">
-        <li>Blue Prism</li>
-        <li>Python</li>
-        <li>UiPath</li>
-        <li>SQL</li>
-        <li>Azure</li>
-        <li>Celonis</li>
-        <li>Unqork</li>
-        <li>Automation Anywhere</li>
-    </div>
-</section>
 {% endblock %}
