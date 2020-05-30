@@ -46,33 +46,32 @@ def fetch_banner_images(folder_name):
 def about_me():
     return render_template(join("mainpages", "about-me.html"), 
         nav_links=nav_links(), 
-        comp_images=fetch_banner_images("employers"),
+        comp_images=fetch_banner_images(),
         background_img = "snowy-mountain-road.jpg")
 
 
 @main_pages.route("/experience")
 def experience():
     return render_template(join("mainpages", "experience.html"), 
-        nav_links=nav_links("experience"), 
+        nav_links=nav_links(), 
         background_img = "black-highway-road.png")
 
 
 @main_pages.route("/skills")
 def skills():
     return render_template(join("mainpages", "skills.html"), 
-        nav_links=nav_links("skills"),
+        nav_links=nav_links(),
         background_img = "computer-background.jpg")
     
     
 @main_pages.route("/projects")
 def projects():
     return render_template(join("mainpages", "projects.html"), 
-        nav_links=nav_links("projects"),
+        nav_links=nav_links(),
         background_img = "sunset-road.jpg")
         
 @main_pages.route("/contact")
 def contact():
     return render_template(join("mainpages", "contact.html"), 
-        nav_links=nav_links("contact"),
-        background_img = "sunset-road.jpg")
+        nav_links=nav_links())
         

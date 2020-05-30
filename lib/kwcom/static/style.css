@@ -125,6 +125,20 @@ p {
 }
 
 /*------------------------
+ * Footer styling
+ ------------------------*/
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-box {
+  color: white;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+/*------------------------
  * Classes for the main window
  ------------------------*/
 .main-background {
@@ -275,18 +289,12 @@ img {
 }
 
 /*------------------------
- * Footer styling
+ * Input styling
  ------------------------*/
-.footer {
-  display: flex;
-  justify-content: center;
-}
-
-.footer-box {
-  color: white;
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
-}
+ input {
+   width: 100%;
+ }
+ 
 
 /*------------------------
  * Media queries
@@ -312,7 +320,8 @@ img {
   }
   
   .title {
-    text-align: left;
+    text-align: right;
+    width: 100%;
   }
   
   .mobile-image {
