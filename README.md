@@ -1,7 +1,7 @@
 # kevin-watt.com
 ![Build health](https://travis-ci.com/kdwatt15/kwcom.svg?branch=master) ![Coverage Status](https://coveralls.io/repos/github/kdwatt15/kwcom/badge.svg?branch=master)
 
-Personal website hosted at http://kevin-watt.com. Website is hosted on an Ubuntu 14.04 server using [mod_wsgi](https://modwsgi.readthedocs.io/en/develop/).
+Personal website hosted at http://kevin-watt.com. Website is hosted on an Ubuntu 14.04 server using [mod_wsgi](https://modwsgi.readthedocs.io/en/develop/). Developed using the [Flask](https://flask.palletsprojects.com/en/1.1.x/) framework. 
 ## Directory Contents
 ### ~/
 * .travis.yml
