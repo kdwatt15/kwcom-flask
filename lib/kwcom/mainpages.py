@@ -31,7 +31,7 @@ def about_me():
     return render_template(join("mainpages", "about-me.html"), 
         nav_links=nav_links(), 
         comp_images=fetch_banner_images("employers"),
-        background_img = "snowy-mountain-road.jpg")
+        background_img = "blue-light.jpg")
 
 
 @main_pages.route("/experience")
@@ -52,4 +52,4 @@ def skills():
 def projects():
     return render_template(join("mainpages", "projects.html"), 
         nav_links=nav_links(),
-        background_img = "sunset-road.jpg")
+        background_img = "garage.jpg")
