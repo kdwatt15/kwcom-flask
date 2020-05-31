@@ -33,7 +33,7 @@ Personal website hosted at http://kevin-watt.com. Website is hosted on an Ubuntu
 * contact.py
   * The [contact](http://kevin-watt.com/contact) works through the _contact\_bp_ blueprint. This uses the [smtplib](https://docs.python.org/3/library/smtplib.html) to send emails and [Twilio](https://www.twilio.com/docs/libraries/python) to send text messages
 * mainpages.py
-  * The _main\_pages_ blueprint is configures the routes for the [home](http://kevin-watt.com), [skills](http://kevin-watt.com/skills), [experience](http://kevin-watt.com/experience), and [projects](http://kevin-watt.com/projects) pages
+  * The _main\_pages_ blueprint configures the backends of the [home](http://kevin-watt.com), [skills](http://kevin-watt.com/skills), [experience](http://kevin-watt.com/experience), and [projects](http://kevin-watt.com/projects) pages
 * utils.py
   * the _utils_ file contains functions that are used across the multiple modules.
 
