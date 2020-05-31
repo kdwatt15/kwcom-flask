@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 # Project imports
 import kwcom
 
-
+# Loads .env file from tests directory
 load_dotenv()
 
 
