@@ -11,9 +11,9 @@
   <h1>{% block title %}Kevin Watt{% endblock %}</h1>
 {% endblock %}
 {% block firstcontent %}
-    <form class="input-container" name="contactForm" 
-        action="{{ url_for('.send_message', message_type='text') }}" method="post"
-        onsubmit="return ValidateContactAddress();">
+<form class="input-container" name="contactForm" 
+    action="{{ url_for('.send_message') }}" method="post"
+    onsubmit="return ValidateContactAddress();">
 <div>
     <p>First Name</p>
     <input type="text" name="firstName" required>
@@ -40,76 +40,68 @@
     <input type="submit" name="submit" 
         onclick="ValidateContactAddress()">
     <button id="changeType" type="button" 
-        onclick="changethis()">Text instead...</button>
+        onclick="return changethis()">Text instead...</button>
 </div>
-        <script>
-            <!--$('#phoneNumber').inputmask("(999) 999-9999");-->
-            
-            <!-- Functions are working correctly. (1) post to twilio, (2) incorporate masking -->
-            var contactType = document.getElementById("contactAddressType");
-            var changeType = document.getElementById("changeType");
-            var email = document.getElementById("email");
-            var phoneNumber = document.getElementById("phoneNumber");
+<script>
+    <!-- $('#phoneNumber').inputmask("(999) 999-9999"); -->
+    var contactType = document.getElementById("contactAddressType");
+    var changeType = document.getElementById("changeType");
+    var email = document.getElementById("email");
+    var phoneNumber = document.getElementById("phoneNumber");
 
-            function changethis() {
-                if (contactType.innerHTML == "Email") {
-                    email.style.display = "none"
-                    email.required = false;
-                    phoneNumber.style.display = "block"
-                    phoneNumber.required = true;
-                    contactType.innerHTML = "Phone Number"
-                    changeType.innerHTML = "Email instead..."
-                } else {
-                    email.style.display = "block";
-                    email.required = true;
-                    phoneNumber.style.display = "none";
-                    phoneNumber.required = false;
-                    contactType.innerHTML = "Email";
-                    changeType.innerHTML = "Text instead...";
-                }
-            }
+    function changethis() {
+        if (contactType.innerHTML == "Email") {
+            email.style.display = "none"
+            email.required = false;
+            email.value = "";
+            phoneNumber.style.display = "block"
+            phoneNumber.required = true;
+            contactType.innerHTML = "Phone Number"
+            changeType.innerHTML = "Email instead..."
+        } else {
+            email.style.display = "block";
+            email.required = true;
+            phoneNumber.style.display = "none";
+            phoneNumber.required = false;
+            phoneNumber.value = "";
+            contactType.innerHTML = "Email";
+            changeType.innerHTML = "Text instead...";
+        }
+    }
 
-            function ValidateContactAddress(inputText) {
-                if (email.style.display !== "none") {
-                    return ValidateEmail(document.contactForm.email);
-                } else {
-                    return ValidatePhoneNumber(document.contactForm.phoneNumber);
-                }
-            }
+    function ValidateContactAddress(inputText) {
+        if (email.style.display !== "none") {
+            return ValidateEmail(document.contactForm.email);
+        } else {
+            return ValidatePhoneNumber(document.contactForm.phoneNumber);
+        }
+    }
 
-            function ValidateEmail(inputText) {
-                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                if (inputText.value.match(mailformat)) {
-                    document.contactForm.email.focus();
-                    return true;
-                } else {
-                    alert("You have entered an invalid email address!");
-                    document.contactForm.email.focus();
-                    return false;
-                }
-            }
+    function ValidateEmail(inputText) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (inputText.value.match(mailformat)) {
+            document.contactForm.email.focus();
+            return true;
+        } else {
+            alert("You have entered an invalid email address!");
+            document.contactForm.email.focus();
+            return false;
+        }
+    }
 
-            function ValidatePhoneNumber(inputText) {
-                var phoneFormat = /\d{10}/;
-                if (inputText.value.match(phoneFormat)) {
-                    document.contactForm.phoneNumber.focus();
-                    return true;
-                } else {
-                    alert("Please enter a valid phone number.");
-                    document.contactForm.phoneNumber.focus();
-                    return false;
-                }
-            }
-            
-            function sendMessage() {
-                if (email.style.display == 'block') {
-                    return "{{ url_for('.send_message', message_type='email') }}"
-                } else {
-                    return "{{ url_for('.send_message', message_type='text') }}"
-                }
-            }
-        </script>
-    </form>
+    function ValidatePhoneNumber(inputText) {
+        var phoneFormat = /\d{10}/;
+        if (inputText.value.match(phoneFormat)) {
+            document.contactForm.phoneNumber.focus();
+            return true;
+        } else {
+            alert("Please enter a valid phone number.");
+            document.contactForm.phoneNumber.focus();
+            return false;
+        }
+    }
+    </script>
+</form>
 {% endblock %}
 {% block content %}
 <!-- "My Work" section for professional statement -->
