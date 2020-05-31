@@ -1,5 +1,5 @@
 # kevin-watt.com
-![Build health](https://travis-ci.com/kdwatt15/kwcom.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/kdwatt15/kwcom/badge.svg?branch=master)](https://coveralls.io/github/kdwatt15/kwcom?branch=master)
+![Build health](https://travis-ci.com/kdwatt15/kwcom.svg?branch=master) ![Coverage Status](https://coveralls.io/github/kdwatt15/kwcom?branch=master)
 
 Personal website to be hosted at kevin-watt.com
 ## Directory Contents
