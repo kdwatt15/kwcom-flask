@@ -1,5 +1,6 @@
 # PyPi imports
 import pytest
+from flask import url_for
 
 # Project imports
 from kwcom import contact
@@ -15,7 +16,7 @@ def test_contact(client):
         ("first", "last", "", "5555555555", "test text body")
     )
 )
-def send_message(client, monkeypatch, firstName, lastName, email, 
+def test_send_message(client, monkeypatch, firstName, lastName, email, 
     phoneNumber, body):
     data = {
         "firstName": firstName,
@@ -24,10 +25,20 @@ def send_message(client, monkeypatch, firstName, lastName, email,
         "phoneNumber": phoneNumber,
         "body": body
     }
-    def fake_sendmail(*args):
-        pass
-    monkeypatch.setattr("smtplib.SMTP.sendmail", fake_sendmail)
+    def placeholder(*args, **kargs):
+        return client.get("/")
+    monkeypatch.setattr("kwcom.contact.send_email", placeholder)
+    monkeypatch.setattr("kwcom.contact.send_text", placeholder)
     response = client.post("/send-message", data=data)
+    
+
+def test_send_email(app, monkeypatch):
+    def placeholder(*args, **kargs):
+        return True
+    monkeypatch.setattr("smtplib.SMTP.login", placeholder)
+    monkeypatch.setattr("smtplib.SMTP.sendmail", placeholder)
+    with app.app_context():
+        assert contact.send_email is not None
 
 
 # Ideally would like to provide the raises parameter
