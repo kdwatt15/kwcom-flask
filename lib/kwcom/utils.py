@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 def set_twilio_env():
     """Set environment variables to support the use of twilio."""
-    load_dotenv(join(dirname(__file__) '.env'))
+    load_dotenv(join(dirname(__file__), '.env'))
     
     
 def nav_links(name=None):
