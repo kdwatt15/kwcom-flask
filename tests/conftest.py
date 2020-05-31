@@ -8,7 +8,7 @@ import kwcom
 
 @pytest.fixture
 def app():
-    load_dotenv()
+    # load_dotenv()
     test_config = {
         "TESTING": True,
         # Server name has to be set to allow URLs to be generated

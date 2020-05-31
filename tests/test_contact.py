@@ -15,7 +15,7 @@ def test_contact(client):
         ("first", "last", "", "5555555555", "test text body")
     )
 )
-def test_send_message(client, monkeypatch, firstName, lastName, email, 
+def send_message(client, monkeypatch, firstName, lastName, email, 
     phoneNumber, body):
     data = {
         "firstName": firstName,
