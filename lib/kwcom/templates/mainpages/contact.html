@@ -40,7 +40,7 @@
     <input type="submit" name="submit" 
         onclick="ValidateContactAddress()">
     <button id="changeType" type="button" 
-        onclick="return changethis()">Text instead...</button>
+        onclick="return changethis()">Send a text instead</button>
 </div>
 <script>
     <!-- $('#phoneNumber').inputmask("(999) 999-9999"); -->
@@ -57,7 +57,7 @@
             phoneNumber.style.display = "block"
             phoneNumber.required = true;
             contactType.innerHTML = "Phone Number"
-            changeType.innerHTML = "Email instead..."
+            changeType.innerHTML = "Send an email instead"
         } else {
             email.style.display = "block";
             email.required = true;
@@ -65,7 +65,7 @@
             phoneNumber.required = false;
             phoneNumber.value = "";
             contactType.innerHTML = "Email";
-            changeType.innerHTML = "Text instead...";
+            changeType.innerHTML = "Send a text instead";
         }
     }
 

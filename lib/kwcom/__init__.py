@@ -7,11 +7,17 @@ from flask import url_for
 from flask import redirect
 
 
-def create_app():
+def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-        
-    from kwcom.utils import set_twilio_env
-    set_twilio_env()
+    # This is kept in for best practice. Need to understand the use of
+    # a secret key in the future and incorporate it.
+    app.config.from_mapping()
+    
+    if test_config is not None:
+        app.config.update(test_config)
+    else:
+        from kwcom.utils import set_twilio_env
+        set_twilio_env()
         
     from kwcom.mainpages import main_pages
     app.register_blueprint(main_pages)

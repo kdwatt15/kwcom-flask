@@ -39,6 +39,7 @@ def send_text(message='test', sender='+12039901186'):
     account_sid = environ['TWILIO_ACCOUNT_SID']
     auth_token = environ['TWILIO_AUTH_TOKEN']
     client = Client(account_sid, auth_token)
+    if (current_app.testing is True): sender = 15005550006
     message = client.messages.create(
         body=message,
         from_=sender,

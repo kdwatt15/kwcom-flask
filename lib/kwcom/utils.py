@@ -14,7 +14,7 @@ def set_twilio_env():
     load_dotenv(join(dirname(__file__), '.env'))
     
     
-def nav_links(name=None):
+def nav_links():
     page_names = ["skills", "experience", "projects"]
     # if (name is not None): page_names.remove(name)
     links = [url_for("main_pages.{0}".format(name)) for name in page_names]
