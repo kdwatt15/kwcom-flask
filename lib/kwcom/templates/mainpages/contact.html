@@ -12,7 +12,7 @@
 {% endblock %}
 {% block firstcontent %}
     <form class="input-container" name="contactForm" 
-        action="{{ url_for('.message_sent') }}" method="post"
+        action="{{ url_for('.send_message', message_type='email') }}" method="post"
         onsubmit="return ValidateContactAddress();">
 <div>
     <p>First Name</p>
@@ -98,6 +98,14 @@
                     alert("Please enter a valid phone number.");
                     document.contactForm.phoneNumber.focus();
                     return false;
+                }
+            }
+            
+            function sendMessage() {
+                if (email.style.display == 'block') {
+                    return "{{ url_for('.send_message', message_type='email') }}"
+                } else {
+                    return "{{ url_for('.send_message', message_type='text') }}"
                 }
             }
         </script>

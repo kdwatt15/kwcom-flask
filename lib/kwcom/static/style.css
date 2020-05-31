@@ -246,8 +246,8 @@ p {
   display: flex;
   height: auto;
   width: 100%;
-  min-height: 30%;
-  padding: 10% 0 10%;
+  min-height: 25%;
+  padding: 5% 0 5%;
 }
 
 .content-1-1 {
@@ -328,9 +328,10 @@ textarea {
 }
 
 .input-buttons button, .input-buttons input[type=submit] {
-  width: 25%;
+  width: auto;
   text-align: center;
   align-self: flex-end;
+  padding: 0 2em 0;
   float: right;
   margin-left: 1em;
 }
