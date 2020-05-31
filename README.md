@@ -20,8 +20,8 @@ Personal website to be hosted at kevin-watt.com
 * mainpages.py
 * utils.py
 
-#### ./static
+#### ./static/
 The static directory contains CSS and Javascript files, images, and documents that are served by the website. All CSS is incorporated in the style.css file. Javascript is in the process of being extracted from the HTML and into the script.js file.
 
-#### ./templates
+#### ./templates/
 HTML files to be served by the webpage are stored here. The two directories *mainpages* and *contact* align with the blueprints registed with the Flask app. All of the HTML files extend the base.html file.
