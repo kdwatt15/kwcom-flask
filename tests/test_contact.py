@@ -38,7 +38,12 @@ def test_send_email(app, monkeypatch):
     monkeypatch.setattr("smtplib.SMTP.login", placeholder)
     monkeypatch.setattr("smtplib.SMTP.sendmail", placeholder)
     with app.app_context():
-        assert contact.send_email is not None
+        assert contact.send_email() is not None
+        
+        
+def test_send_text(app):
+    with app.app_context():
+        assert contact.send_text() is not None
 
 
 # Ideally would like to provide the raises parameter
