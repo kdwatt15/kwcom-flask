@@ -4,7 +4,7 @@ from os import environ
 # Project imports
 from kwcom import utils
 
-def set_twilio_env():
+def test_set_twilio_env():
     utils.set_twilio_env()
     env_keys = ("TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "GMAIL_USER",
         "GMAIL_PASSWORD")
