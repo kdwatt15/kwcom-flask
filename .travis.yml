@@ -8,6 +8,6 @@ install:
 script:
   - pip install -r requirements.txt
   - pip install .
-  - pytest --cov=kwcom/
+  - pytest
 after_success:
   - coveralls
