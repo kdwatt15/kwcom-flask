@@ -12,15 +12,15 @@
 {% endblock %}
 {% block firstcontent %}
     <form class="input-container" name="contactForm" 
-        action="{{ url_for('.send_message', message_type='email') }}" method="post"
+        action="{{ url_for('.send_message', message_type='text') }}" method="post"
         onsubmit="return ValidateContactAddress();">
 <div>
     <p>First Name</p>
-    <input type="text" name="First Name" required>
+    <input type="text" name="firstName" required>
 </div>
 <div>
     <p>Last Name</p>
-    <input type="text" name="Last Name" required>
+    <input type="text" name="lastName" required>
 </div>
 <div>
     <p id="contactAddressType">Email</p>
@@ -34,7 +34,7 @@
 </div>
 <div>
     <p>Body</p>
-    <textarea type="text" name="Body" required></textarea>
+    <textarea type="text" name="body" required></textarea>
 </div>
 <div class="input-buttons">
     <input type="submit" name="submit" 

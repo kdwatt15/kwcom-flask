@@ -1,5 +1,7 @@
+# Standard imports
 import os
 
+# PyPi imports
 from flask import Flask
 from flask import url_for
 from flask import redirect
@@ -7,16 +9,14 @@ from flask import redirect
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
-    
-    @app.route('/hello')
-    def index_page():
-        return 'hello'
         
-    from kwcom import mainpages
-    app.register_blueprint(mainpages.main_pages)
+    from kwcom.utils import set_twilio_env
+    set_twilio_env()
+        
+    from kwcom.mainpages import main_pages
+    app.register_blueprint(main_pages)
     
-    from kwcom import contact
-    app.register_blueprint(contact.contact_bp)
-    contact.init_contact(app)
+    from kwcom.contact import contact_bp
+    app.register_blueprint(contact_bp)
     
     return app
