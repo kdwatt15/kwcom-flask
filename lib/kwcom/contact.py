@@ -63,7 +63,7 @@ def send_email(message=None, recepient='kdwatt15@gmail.com'):
 
 @contact_bp.route("/contact")
 def contact():
-    return render_template(join("mainpages", "contact.html"), 
+    return render_template("mainpages/contact.html", 
         nav_links=nav_links())
         
         

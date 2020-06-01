@@ -32,7 +32,7 @@ def test_send_message(client, monkeypatch, firstName, lastName, email,
     response = client.post("/send-message", data=data)
     
 
-def send_email(app, monkeypatch):
+def test_send_email(app, monkeypatch):
     def placeholder(*args, **kargs):
         return True
     monkeypatch.setattr("smtplib.SMTP.login", placeholder)
@@ -41,7 +41,7 @@ def send_email(app, monkeypatch):
         assert contact.send_email() is not None
         
         
-def send_text(app):
+def test_send_text(app):
     with app.app_context():
         assert contact.send_text() is not None
 

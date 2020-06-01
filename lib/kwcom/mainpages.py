@@ -1,5 +1,7 @@
-from os import stat
+from os import stat, fspath
 from os.path import join
+
+from pathlib import PureWindowsPath
 
 from flask import Blueprint
 from flask import render_template
@@ -28,7 +30,7 @@ def dated_url_for(endpoint, **values):
 
 @main_pages.route("/")
 def about_me():
-    return render_template(join("mainpages", "about-me.html"), 
+    return render_template('mainpages/about-me.html', 
         nav_links=nav_links(), 
         comp_images=fetch_banner_images("employers"),
         background_img = "blue-light.jpg")
@@ -36,20 +38,20 @@ def about_me():
 
 @main_pages.route("/experience")
 def experience():
-    return render_template(join("mainpages", "experience.html"), 
+    return render_template("mainpages/experience.html", 
         nav_links=nav_links(), 
         background_img = "black-highway-road.png")
 
 
 @main_pages.route("/skills")
 def skills():
-    return render_template(join("mainpages", "skills.html"), 
+    return render_template("mainpages/skills.html", 
         nav_links=nav_links(),
         background_img = "computer-background.jpg")
     
     
 @main_pages.route("/projects")
 def projects():
-    return render_template(join("mainpages", "projects.html"), 
+    return render_template("mainpages/projects.html", 
         nav_links=nav_links(),
         background_img = "garage.jpg")
