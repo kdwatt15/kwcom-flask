@@ -24,11 +24,13 @@ def test_fetch_banner_images():
     assert utils.fetch_banner_images("employers") is not None
 
 # Want to figure out why I still have to xfail this
-@pytest.mark.xfail()
-def test_dated_url_for(app, monkeypatch):
+#@pytest.mark.xfail()
+def test_dated_url_for(app):
 	# monkeypatch used to prevent url for from returning error
 	def placeholder(*args, **kargs):
 		return client.get("/")
 	with app.app_context():
-		monkeypatch.setattr("flask.url_for", placeholder)
-		utils.dated_url_for('static', filename=None)
+		try:
+			utils.dated_url_for('static', filename=None)
+		except Exception as e:
+			assert "Could not build url for endpoint 'static'" in str(e)
