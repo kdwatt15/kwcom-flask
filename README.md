@@ -37,8 +37,8 @@ Personal website hosted at http://kevin-watt.com. Website is hosted on an Ubuntu
 * utils.py
   * the _utils_ file contains functions that are used across the multiple modules.
 
-#### ./static
+### ~/lib/kwcom/static
 The static directory contains CSS and Javascript files, images, and documents that are served by the website. All CSS is incorporated in the style.css file. Javascript is in the process of being extracted from the HTML and into the script.js file.
 
-#### ./templates
+### ~/lib/kwcom/templates
 HTML files to be served by the webpage are stored here. The two directories *mainpages* and *contact* align with the blueprints registed with the Flask app. All of the HTML files extend the base.html file.
