@@ -14,25 +14,22 @@
         <p>What I'm doing.</p>
     </div>
     <div class="main-content-box">
-        <p>I like to spend my free time learning. Here's a look at what I've been able to learn off the clock.<br><br></p>
+        <p>I like to spend my free time tinkering. Here's a look at what I've been building while off the clock.<br><br></p>
     </div>
 </div>
 {% endblock %}
 {% block content %}
 <!-- "My Work" section for professional statement -->
-<section class="padded-content-container off-white">
-    <div class="half-content title off-white">
-        <p>Languages and Tools</p>
-    </div>
-    <div class="half-content off-white">
-        <li>Blue Prism</li>
-        <li>Python</li>
-        <li>UiPath</li>
-        <li>SQL</li>
-        <li>Azure</li>
-        <li>Celonis</li>
-        <li>Unqork</li>
-        <li>Automation Anywhere</li>
+<section class="large-content-container off-white">
+    <div class="grid">
+		<div class="project-box">
+			<a href="http://github.com/kdwatt15/kwcom" target="_blank"><img src="{{ url_for('static', filename='images/projects/design-boxes.jpg')}}">kwcom</a>
+			<p>First attempt at web development. Built in Python using Flask.</p>
+        </div>
+        <div class="project-box">
+			<a href="http://google.com" target="_blank"><img src="{{ url_for('static', filename='images/projects/utility-pole.jpg')}}">Web Scrape CLI</a>
+			<p>CLI for Selenium based web scraper. Still a work in progress.</p>
+        </div>
     </div>
 </section>
 {% endblock %}
