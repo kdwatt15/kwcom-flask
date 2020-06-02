@@ -3,6 +3,8 @@
 <style>
 :root {--nav-text: white;
     --primary-text: black;}
+    
+    
 </style>
 {% endblock %}
 {% block header %}
@@ -20,16 +22,26 @@
 {% endblock %}
 {% block content %}
 <!-- "My Work" section for professional statement -->
-<section class="large-content-container off-white">
-    <div class="grid">
-		<div class="project-box">
-			<a href="http://github.com/kdwatt15/kwcom" target="_blank"><img src="{{ url_for('static', filename='images/projects/design-boxes.jpg')}}">kwcom</a>
-			<p>First attempt at web development. Built in Python using Flask.</p>
-        </div>
-        <div class="project-box">
-			<a href="http://google.com" target="_blank"><img src="{{ url_for('static', filename='images/projects/utility-pole.jpg')}}">Web Scrape CLI</a>
-			<p>CLI for Selenium based web scraper. Still a work in progress.</p>
-        </div>
-    </div>
+<section class="padded-content-container off-white">
+    <div class="content-1-3">
+		<img src="{{ url_for('static', filename='images/projects/design-boxes.jpg')}}" style="min-height: 400px;">
+	</div>
+	<div class="content-1-3">
+		<p class="content">This is content</p>
+	</div>
+	<div class="content-1-3">
+		<p class="sticky-box title">kwcom</p>
+	</div>
+</section>
+<section class="padded-content-container white">
+    <div class="content-1-3">
+		<img src="{{ url_for('static', filename='images/projects/utility-pole.jpg')}}" style="min-height: 400px;">
+	</div>
+	<div class="content-1-3">
+		<p class="content">This is content</p>
+	</div>
+	<div class="content-1-3">
+		<p class="sticky-box title">Web Scrape CLI</p>
+	</div>
 </section>
 {% endblock %}

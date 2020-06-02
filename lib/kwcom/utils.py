@@ -37,4 +37,4 @@ def dated_url_for(endpoint, **values):
 				file_path = join(current_app.root_path,
 					endpoint, filename)
 				values['q'] = int(stat(file_path).st_mtime)
-		return url_for(endpoint, **values)
+	return url_for(endpoint, **values)
