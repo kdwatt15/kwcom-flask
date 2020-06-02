@@ -202,7 +202,7 @@ p {
 }
 
 .main-content-box p {
-font-size: 15px;
+  font-size: 15px;
 }
 
 /*------------------------
@@ -288,6 +288,12 @@ font-size: 15px;
   max-width: 700px;
 }
 
+.content img {
+  max-width: 90%;
+  padding: 0 5% 0;
+  object-fit: cover;
+}
+
 /*------------------------
  * Banner images
  ------------------------*/
@@ -319,7 +325,7 @@ img {
 .grid {
   display: grid;
   /*grid-template-columns: repeat(auto-fill, minmax(300px, 700px));*/
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 600px));
   justify-content: space-evenly;
   align-items: stretch;
   width: 100%;
@@ -354,6 +360,7 @@ img {
 
 .project-box p {
   margin: 1em;
+  width: 300px;
 }
 
 /*------------------------
