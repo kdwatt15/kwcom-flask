@@ -1,4 +1,4 @@
-from os import stat, fspath
+from os import stat
 from os.path import join
 
 from pathlib import PureWindowsPath
@@ -12,21 +12,6 @@ from kwcom.utils import nav_links, fetch_banner_images
 
 main_pages = Blueprint("main_pages", __name__)
 
-
-@main_pages.context_processor
-def override_url_for():
-    return dict(url_for=dated_url_for)
-
-
-def dated_url_for(endpoint, **values):
-    if endpoint == 'static':
-        filename = values.get('filename', None)
-        if filename:
-            file_path = join(main_pages.root_path,
-                endpoint, filename)
-            values['q'] = int(stat(file_path).st_mtime)
-    return url_for(endpoint, **values)
-    
 
 @main_pages.route("/")
 def about_me():

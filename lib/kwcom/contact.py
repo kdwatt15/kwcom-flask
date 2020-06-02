@@ -19,27 +19,11 @@ from flask import current_app
 
 contact_bp = Blueprint("contact_bp", __name__)
 
-# need to migrate this to utils and then have in initialization of the app
-@contact_bp.context_processor
-def override_url_for():
-    return dict(url_for=dated_url_for)
-
-
-def dated_url_for(endpoint, **values):
-    if endpoint == 'static':
-        filename = values.get('filename', None)
-        if filename:
-            file_path = join(contact_bp.root_path,
-                endpoint, filename)
-            values['q'] = int(stat(file_path).st_mtime)
-    return url_for(endpoint, **values)
-
 # should I have a decorate to recover errors to one page here?
 def send_text(message='test', sender='+12039901186'):
     account_sid = environ['TWILIO_ACCOUNT_SID']
     auth_token = environ['TWILIO_AUTH_TOKEN']
     client = Client(account_sid, auth_token)
-    if (current_app.testing is True): sender = 15005550006
     message = client.messages.create(
         body=message,
         from_=sender,

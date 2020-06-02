@@ -1,3 +1,6 @@
+#PyPi import
+import pytest
+
 # Project imports
 from kwcom import create_app
 

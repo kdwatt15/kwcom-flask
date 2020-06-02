@@ -1,5 +1,8 @@
-# PyPi imports
+# Standard imports
 from os import environ
+
+# PyPi imports
+import pytest
 
 # Project imports
 from kwcom import utils
@@ -19,3 +22,13 @@ def test_nav_links(app):
     
 def test_fetch_banner_images():
     assert utils.fetch_banner_images("employers") is not None
+
+# Want to figure out why I still have to xfail this
+@pytest.mark.xfail()
+def test_dated_url_for(app, monkeypatch):
+	# monkeypatch used to prevent url for from returning error
+	def placeholder(*args, **kargs):
+		return client.get("/")
+	with app.app_context():
+		monkeypatch.setattr("flask.url_for", placeholder)
+		utils.dated_url_for('static', filename=None)

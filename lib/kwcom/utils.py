@@ -5,6 +5,7 @@ from pathlib import Path
 
 #PyPi imports
 from flask import url_for
+from flask import current_app
 from imghdr import what
 from dotenv import load_dotenv
 
@@ -26,3 +27,14 @@ def fetch_banner_images(folder_name):
     img_types = ('.svg', '.png', '.jpg')
     comp_images = [f for f in listdir(comp_path) if Path(f).suffix in img_types]
     return comp_images
+
+
+def dated_url_for(endpoint, **values):
+	with current_app.app_context():
+		if endpoint == 'static':
+			filename = values.get('filename', None)
+			if filename:
+				file_path = join(current_app.root_path,
+					endpoint, filename)
+				values['q'] = int(stat(file_path).st_mtime)
+		return url_for(endpoint, **values)
