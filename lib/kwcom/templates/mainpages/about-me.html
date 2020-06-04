@@ -3,6 +3,7 @@
   <h1>{% block title %}Kevin Watt{% endblock %}</h1>
 {% endblock %}
 {% block style %}
+:root {--background-url: url({{ url_for('static', filename='images/{0}'.format(background_img)) }});}
 {% endblock %}
 {% block firstcontent %}
 <div class="main-content-container">

@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block style %}
-<style>
-:root {--nav-text: white;
-    --primary-text: black;}
+:root {--nav-text: white; --primary-text: black; --background-url: url({{ url_for('static', filename='images/{0}'.format(background_img)) }});}
 .main-content-box li {color: white;}
-</style>
 {% endblock %}
 {% block header %}
   <h1>{% block title %}Kevin Watt{% endblock %}</h1>
@@ -15,69 +12,65 @@
         <p>What I can do.</p>
     </div>
     <div class="main-content-box">
-        <p>This page contains languages and tools that I've worked with in three categories:</p>
+        <p>Developing, honing, and delivering on new skills rapidly is the fun of working with technology. Needs change quickly both between and on projects, and the faster you're able to learn, the more you can bring to the table.</p>
         <ul color="white">
             <li>'Certifications' are listed exhaustively with the date each was earned.</li>
-            <li>'Professional' are the skills that I have used in a professional setting.</li>
+            <li>'Professionally Engaged' are the skills that I have used in a professional setting.</li>
             <li>Under 'Working Knowledge' are the tools that I would be comfortable using professionally but have not had the opportunity to yet.</li>
         </ul>
-        <p>All categories are listed in order of familiarity.</p>
+        <p>Category contents are listed in order of familiarity.</p>
     </div>
 </div>
 {% endblock %}
 {% block content %}
 <section class="padded-content-container mobile-column off-white">
-    <div class="content-1-2 title sticky-box">
-        <p>Certifications</p>
+    <div class="content-1-3 title">
+        <p style="position: sticky; top: 0px;">Certifications</p>
     </div>
-    <div class="content-1-2 mobile-content">
-		<p class="skill-title">Blue Prism</p>
-			<ul>
-				<li>Blue Prism</li>
-				<li>another</li>
-			</ul>
+    <div class="content-2-3 mobile-content">
+		<p>Blue Prism</p>
+		<ul>
+			<li>Blue Prism Certified Solutions Designer</li>
+			<li>Blue Prism Certified Technical Architect (Version 6)</li>
+			<li>Blue Prism Certified Developer</li>
+		</ul>
 		<p class="skill-title">Alteryx</p>
-			<ul>
-				<li>Blue Prism</li>
-				<li>another</li>
-			</ul>
-		<p class="skill-title">UiPath</p>
-			<ul>
-				<li>Blue Prism</li>
-				<li>another</li>
-			</ul>
-		<p class="skill-title">Automation Anywhere</p>
-			<ul>
-				<li>Blue Prism</li>
-				<li>another</li>
-			</ul>
+		<ul>
+			<li>Alteryx Core Certified</li>
+		</ul>
     </div>
 </section>
 <section class="padded-content-container mobile-column white">
-    <div class="content-1-2 title">
-        <p>Professionally Engaged</p>
+    <div class="content-1-3 title">
+        <p style="position: sticky; top: 0px;">Professionally Engaged</p>
     </div>
-    <div class="content-1-2 mobile-content">
-        <li>SQL (DBA, development, and design)</li>
-        <li>Salesforce CRM</li>
-        <li>Salesforce Einstein Analytics</li>
-        <li>vb.NET</li>
-        <li>Celonis</li>
-        <li>Unqork</li>
+    <div class="content-2-3 mobile-content">
+		<ul>
+			<li>UiPath</li>
+			<li>Automation Anywhere</li>
+			<li>SQL (DBA, development, and design)</li>
+			<li>Salesforce CRM</li>
+			<li>Salesforce Einstein Analytics</li>
+			<li>vb.NET</li>
+			<li>Celonis</li>
+			<li>Unqork</li>
+        </ul>
     </div>
 </section>
 <section class="padded-content-container mobile-column off-white">
-    <div class="content-1-2 title off-white">
-        <p>Working Knowledge</p>
+    <div class="content-1-3 title off-white">
+        <p style="position: sticky; top: 0px;">Working Knowledge</p>
     </div>
-    <div class="content-1-2 mobile-content">
-        <li>Azure</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Server Administration</li>
-        <li>AWS</li>
-        <li>Docker</li>
+    <div class="content-2-3 mobile-content">
+		<ul>
+			<li>Azure</li>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>Server Administration</li>
+			<li>AWS</li>
+			<li>Docker</li>
+		</ul>
     </div>
 </section>
 {% endblock %}

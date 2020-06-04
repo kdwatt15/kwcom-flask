@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block style %}
-<style>
-
-</style>
+:root {--background-url: url({{ url_for('static', filename='images/{0}'.format(background_img)) }});}
 {% endblock %}
 {% block header %}
 {% block title %}Experience{% endblock %}
@@ -15,30 +13,57 @@
 </div>
 {% endblock %}
 {% block content %}
+
 <section class="padded-content-container off-white">
-	<section class="experience-grid off-white" id="professional-experience">
-		<div>
-			<p class="title sticky-box">KPMG</p>
-		</div>
-		<div class="experience-container">
-			<div>
-				<p class="title">Experience 1</p>
-				<p class="content">other</p>
+	<div>
+		<h1>Professional Experience</h1>
+		<div class="experience-grid off-white" id="professional-experience">
+			<div class="experience-container">
+				<p class="title sticky-box">KPMG</p>
+				<p class="detail">Associate</p>
+				<p class="detail">Intelligent Automation</p>
+				<p class="detail">June 2019 - Present</p>
 			</div>
-			<div>
-				<p class="title">Experience 1</p>
-				<p class="content">other</p>
+			<div class="experience-container">
+				<div>
+					<p class="title">Experience 1</p>
+					<p class="content">other</p>
+				</div>
+				<div>
+					<p class="title">Experience 1</p>
+					<p class="content">other</p>
+				</div>
+			</div>
+			<div class="experience-container">
+				<p class="title sticky-box">MLB</p>
+				<p class="detail">Internal Consultant</p>
+				<p class="detail">June 2017 - May 2019</p>
+			</div>
+			<div class="experience-container" id="volunteer experience">
+				<div>
+					<p class="title">Introduced Baseball to RPA</p>
+					<p class="content">Facilitated a partnership between UiPath, third party consultants, and MLBAM in order to establish MLBAM’s first automated workforce</p>
+					<p class="title">Salesforce Einstein Implementation</p>
+					<p class="content">Created and maintained the data visualization systems that MLB uses to conduct revenue reporting allowing for real-time review of both sales and interdepartmental communication</p>
+					<p class="title">Experience 1</p>
+					<p class="content">Streamlined data management and storage to provide cleaner, more accessible data resulting in more timely and insightful reporting across sales, finance, and strategic reporting</p>
+					<p class="title">Experience 1</p>
+					<p class="content">Automated existing reporting practices to track both network and digital performance which helped reduce management time spent in low-value work by approximately .8 FTEs</p>
+					<p class="title">Experience 1</p>
+					<p class="content">Leveraged the data analytics and reporting skills developed during the internship into a remote position (20 hours/week) while attending school full time to continue supporting improved reporting and analytics and instituted MLBAM’s first data visualization capabilities on desktop and mobile apps</p>
+				</div>
 			</div>
 		</div>
-		<div>
-			<p class="title sticky-box">MLB</p>
-		</div>
-		<div class="experience-container" id="volunteer experience">
-			<div>
-				<p class="title">Experience 1</p>
-				<p class="content">other</p>
-			</div>
-		</div>
-	</section>
+	</div>
 </section>
+<section class="padded-content-container off-white">
+	<div>
+		<h1>Community Engagement</h1>
+		<div class="experience-grid off-white border3">
+			<div class="border2">kevin</div>
+			<div class="border2">watt</div>
+		</div>
+	</div>
+</section>
+
 {% endblock %}
